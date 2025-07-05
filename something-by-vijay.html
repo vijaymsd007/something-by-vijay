@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Archana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Comic Neue', cursive;
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .slide {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-size: 1.5rem;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .next-button {
+      position: absolute;
+      bottom: 30px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      background: transparent;
+      color: white;
+      border: none;
+    }
+
+    .next-button.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-container">
+    <div class="slide active">Haii Archana</div>
+    <div class="slide">Sorry to disturb</div>
+    <div class="slide">But this can't wait</div>
+    <div class="slide">Feeling sleepy ?</div>
+    <div class="slide">Don't close your eyes just yet</div>
+    <div class="slide">Night was quiet</div>
+    <div class="slide">Just me and the silence<br>Another night,<br>Another breath,<br>Doing what I always do Until...</div>
+    <div class="slide">The moon stayed still for a second<br>The time quietly smiled<br>As the star whispered in my ears<br> - Her birthday</div>
+    <div class="slide">The girl who hums while she draws,<br>Pauses between pages to dream,<br>She doesn't ask the world to notice her</div>
+    <div class="slide">Somehow I did, maybe</div>    
+    <div class="slide">A world she never fully shares<br>There's calm in her silence<br>She hides feelings behind softness<br>Deep, quiet, real</div>
+    <div class="slide">She likes to travel alone,<br>Chasing sunrises and mountains</div>
+    <div class="slide">I kept noticing the little things,<br>I've always admired you quietly,<br>Not to steal moments that were never mine<br>Just to feel something beautiful from a distance</div>
+    <div class="slide">Some feelings grow roots in silence<br>Some stories are never meant to be spoken<br>Some questions never be asked<br>All I do is to stay in my place within my line</div>
+    <div class="slide">Some gifts don't come in boxes</div>
+    <div class="slide">They come in words</div>
+    <div class="slide">Quietly given<br>No ribbon,<br>No expectations,<br>If somewhere in your day<br>you smiled a little more because of me or...</div>
+    <div class="slide">I'm a boring blah blah blah ??</div>
+    <div class="slide">Maybe the universe tripped<br>Maybe the fate got bored<br>Somehow, our paths crossed<br>One lucky little accident I'll never complain about<br>And even, if it's just for a while<br>Got to know someone like you</div>
+    <div class="slide">Grateful - always</div>
+    <div class="slide">Some people walk in like a moment<br>You stayed like a memory</div>
+    <div class="slide">Dear God(karthare), Please be kind to her</div>
+    <div class="slide">For the girl who doesn't know how much she matters</div>
+    <div class="slide">For my lucky accident</div>
+    <div class="slide">For Archana</div>
+    <div class="slide">Belated 2024</div>
+    <div class="slide">Advance 2025</div>
+    <div class="slide">A very happie birthday</div>
+    <div class="slide">Smile more<br> - Vijay</div>
+
+    <button class="next-button" id="nextBtn" onclick="nextSlide()">➤</button>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="background.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('nextBtn');
+    const audio = document.getElementById('bgMusic');
+    let currentSlide = 0;
+    let started = false;
+
+    function nextSlide() {
+      // Play music only once
+      if (!started) {
+        audio.play().catch(() => console.log("Autoplay blocked. Needs user gesture."));
+        started = true;
+      }
+
+      if (currentSlide < slides.length - 1) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide++;
+        slides[currentSlide].classList.add('active');
+
+        if (currentSlide === slides.length - 1) {
+          nextBtn.classList.add('hidden');
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
